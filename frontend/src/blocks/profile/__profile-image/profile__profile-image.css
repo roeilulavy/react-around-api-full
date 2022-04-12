@@ -1,0 +1,6 @@
+.profile__profile-image{
+    width: 120px;
+    height: 120px;
+    border-radius: 100px;
+    src: url('https://code.s3.yandex.net/web-code/avatar.jpg');
+}

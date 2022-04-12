@@ -1,0 +1,12 @@
+.header__id{
+  height: fit-content;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: right;
+  text-decoration: none;
+  color: #ffffff;
+  margin: 0 24px 0 0;
+  padding: 0;
+}

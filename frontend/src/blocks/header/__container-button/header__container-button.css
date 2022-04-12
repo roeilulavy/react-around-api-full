@@ -1,0 +1,19 @@
+.header__container-button{
+  display: none;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.header__container-button:hover{
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 670px){
+  .header__container-button{
+    display: block;
+  }
+}

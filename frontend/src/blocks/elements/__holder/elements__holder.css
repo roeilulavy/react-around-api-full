@@ -1,0 +1,9 @@
+.elements__holder{
+    max-width: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 25px 15px 25px 21px;
+}

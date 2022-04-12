@@ -1,0 +1,17 @@
+.register__header {
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 500px){
+  .register__header{
+    font-size: 20px;
+    line-height: 24px;
+  }
+}

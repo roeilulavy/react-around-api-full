@@ -1,0 +1,24 @@
+.profile__edit-picture{
+    position: absolute;
+    bottom: 0;
+    outline: none;
+    color: transparent;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background: url(../../../images/button/edit.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 40%;
+    border: none;
+}
+
+.profile__edit-picture:hover {
+    opacity: 1;
+}
