@@ -6,7 +6,7 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 
 const jwtsecret = NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret';
 
-const getToken = (userId) => jwt.sign({ id: userId }, jwtsecret, { expiresIn: '7d' });
+const getToken = (userId) => jwt.sign({ _id: userId }, jwtsecret, { expiresIn: '7d' });
 
 const isAuthorized = (token) => {
   if (!token) {

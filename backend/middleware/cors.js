@@ -5,6 +5,7 @@ const allowedCors = [
   'http://roy-server.students.nomoreparties.sbs',
   'https://api.roy-server.students.nomoreparties.sbs',
   'http://api.roy-server.students.nomoreparties.sbs',
+  'http://localhost:3000',
   'localhost:3000',
 ];
 

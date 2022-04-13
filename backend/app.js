@@ -13,13 +13,14 @@ const { login, createUser } = require('./controllers/users');
 const { auth } = require('./middleware/auth');
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
+const { NotFoundError } = require('./utils/errorHandler');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
 
 const limiter = rateLimiter({
   windowMs: 15 * 60 * 1000,
-  max: 100,
+  max: 1000,
   standardHeaders: true,
   legacyHeaders: false,
 });
@@ -56,8 +57,8 @@ app.post('/signup', celebrate({
 app.use('/users', auth, usersRouter);
 app.use('/cards', auth, cardsRouter);
 
-app.get('/*', (req, res) => {
-  res.status(404).send({ message: 'Requested resource not found' });
+app.get('/*', (req, res, next) => {
+  next(new NotFoundError('Requested resource not found'));
 });
 
 app.use(handleErrors);
