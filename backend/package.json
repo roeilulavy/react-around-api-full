@@ -1,0 +1,46 @@
+{
+  "name": "around-express",
+  "version": "1.0.0",
+  "description": "back-end for around U.S project",
+  "author": "Roy Lulavy",
+  "license": "ISC",
+  "main": "app.js",
+  "homepage": "https://github.com/roeilulavy/around-express#readme",
+  "scripts": {
+    "lint": "npx eslint .",
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roeilulavy/around-express.git"
+  },
+  "bugs": {
+    "url": "https://github.com/roeilulavy/around-express/issues"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.2",
+    "celebrate": "^15.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "express": "^4.17.3",
+    "express-rate-limit": "^6.3.0",
+    "express-winston": "^4.2.0",
+    "helmet": "^5.0.2",
+    "https": "^1.0.0",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.4",
+    "validator": "^13.7.0",
+    "winston": "^3.7.2"
+  }
+}
