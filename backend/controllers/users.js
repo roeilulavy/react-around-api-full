@@ -12,17 +12,17 @@ module.exports.login = async (req, res, next) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      next(new AuthorizationError('Invalid Email or Password'));
+      next(new BadRequestError('Invalid info was provided'));
     }
 
     const user = await User.findUserByCredentials(email, password);
 
-    if (!user) {
-      next(new AuthorizationError('Invalid Email or Password'));
-    } else {
+    if (user) {
       const token = await getToken(user._id);
 
       res.status(200).json(token);
+    } else {
+      next(new AuthorizationError('Invalid Email or Password'));
     }
   } catch (err) {
     next(new AuthorizationError('Invalid Email or Password'));

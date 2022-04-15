@@ -4,23 +4,21 @@ const helmet = require('helmet');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const rateLimiter = require('express-rate-limit');
-const { celebrate, Joi } = require('celebrate');
-const { errors } = require('celebrate');
-const { handleCors } = require('./middleware/cors');
+const { celebrate, Joi, errors } = require('celebrate');
 const { handleErrors } = require('./middleware/handleErrors');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const { login, createUser } = require('./controllers/users');
+const { NotFoundError } = require('./utils/errorHandler');
 const { auth } = require('./middleware/auth');
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
-const { NotFoundError } = require('./utils/errorHandler');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
 
 const limiter = rateLimiter({
   windowMs: 15 * 60 * 1000,
-  max: 1000,
+  max: 500,
   standardHeaders: true,
   legacyHeaders: false,
 });
@@ -28,14 +26,12 @@ const limiter = rateLimiter({
 mongoose.connect('mongodb://localhost:27017/aroundb');
 
 app.use(limiter);
-app.use(errors());
 app.use(helmet());
 app.use(bodyParser.json());
+app.disable('x-powered-by');
 
-app.use(handleCors);
 app.use(cors());
 app.options('*', cors());
-app.disable('x-powered-by');
 
 app.use(requestLogger);
 
@@ -61,8 +57,11 @@ app.get('/*', (req, res, next) => {
   next(new NotFoundError('Requested resource not found'));
 });
 
-app.use(handleErrors);
 app.use(errorLogger);
+
+app.use(handleErrors);
+
+app.use(errors());
 
 mongoose.connection.once('error', () => {
   console.error.bind(console, 'MongoDB Connection Error: ');// eslint-disable-line no-console
